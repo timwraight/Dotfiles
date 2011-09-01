@@ -141,8 +141,6 @@ nnoremap <leader>a :Ack
 nnoremap <silent> <leader>/ :noh<CR>
 " Enclose current word in single quotes
 nnoremap <leader>' ysw'
-" Get out of insert mode easily
-inoremap <silent> <leader>; <ESC>
 " Split windows easily, and switch immediately
 nnoremap <leader>p <C-w>v<C-w>l 
 
