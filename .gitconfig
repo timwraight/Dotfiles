@@ -1,6 +1,6 @@
-[user]
+[.user]
 	name = Tim Wraight
-	email = tim.wraight@tangentlabs.co.uk
+	email = <email>
 [color]
 	diff = auto
 	status = auto
@@ -22,7 +22,7 @@
         changed = green
         untracked = cyan
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/twraight/.gitignore_global
     pager = less -FRSX
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor = mvim --remote-tab-wait
