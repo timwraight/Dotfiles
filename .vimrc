@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -33,6 +33,8 @@ Bundle 'betamike/cocoa.vim'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'timwraight/Vim-Noweb'
 Bundle 'timwraight/vim-markdown'
+Bundle 'veselosky/vim-rst'
+Bundle 'nvie/vim-rst-tables'
 
 " Non github
 Bundle 'git://git.wincent.com/command-t.git'
@@ -114,6 +116,7 @@ set statusline=%<\ %n:%f\ %{fugitive#statusline()}\ %m%r%y%=%-35.(line:\ %l\ of\
 " make vim use normal regexes for searching
 nnoremap / /\v
 vnoremap / /\v
+
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -129,8 +132,9 @@ nnoremap <space> zz
 " defined like this:
 let mapleader=","
 
+inoremap <silent> <leader>; <ESC>
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
-" Rqeuires Scratch plugin: 
+" Requires Scratch plugin: 
 nnoremap <silent> <leader>s :Sscratch<CR>
 inoremap <silent> <leader>b <C-^>
 nnoremap <silent> <leader>b <C-^>
@@ -146,7 +150,6 @@ nnoremap <leader>p <C-w>v<C-w>l
 
 " Enable some jeyboard shortcuts for MiniBufExplorer:
 let g:miniBufExplMapWindowNavVim = 1
-
 
 " Save us some keystrokes:
 nnoremap \ ;
@@ -192,18 +195,6 @@ let noweb_fold_code = 1
 au BufRead,BufNewFile *.text    set filetype=markdown
 au BufRead,BufNewFile *.phn    set filetype=lisp
 
-function! JavaScriptFold() 
-    setl foldmethod=syntax
-    setl foldlevelstart=1
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-        return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
-au FileType javascript call JavaScriptFold()
-au FileType javascript setl fen
-
 autocmd filetype scheme nnoremap <silent> <C-c> :! csc %; BNAME=`basename % .scm`; chmod +x $BNAME; ./$BNAME; echo "\n" <CR>
+autocmd filetype rst nnoremap <silent> <leader>gd :! sphinx-build docs/source docs/source/_build <CR>
 
