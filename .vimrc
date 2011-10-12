@@ -35,6 +35,7 @@ Bundle 'timwraight/Vim-Noweb'
 Bundle 'timwraight/vim-markdown'
 Bundle 'veselosky/vim-rst'
 Bundle 'nvie/vim-rst-tables'
+Bundle 'vim-scripts/django.vim'
 
 " Non github
 Bundle 'git://git.wincent.com/command-t.git'
@@ -46,6 +47,9 @@ set history=1000		" keep 1000 lines of command line history
 set undolevels=1000		" allow 1000 levels of undo
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
+set ofu=syntaxcomplete#Complete " Turn on OmniComplete
+set completeopt=longest,menuone " Complete as much as possible of the word, 
+" and show menu even if there's only one match
 set hlsearch      " highlight search terms
 set incsearch		" do incremental searching
 set showmatch  " briefly jump to matching pair characters when typed
@@ -132,15 +136,16 @@ nnoremap <space> zz
 " defined like this:
 let mapleader=","
 
-inoremap <silent> <leader>; <ESC>
+inoremap <silent> kj <ESC>
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <leader>o :NERDTreeFind<CR>
 " Requires Scratch plugin: 
 nnoremap <silent> <leader>s :Sscratch<CR>
 inoremap <silent> <leader>b <C-^>
 nnoremap <silent> <leader>b <C-^>
 nnoremap <silent> <leader>l :set number!<CR>
-nnoremap <silent> <leader>y :YRToggle<CR>
-inoremap <silent> <leader>y <ESC>:YRToggle<CR>
+nnoremap <silent> <leader>y :YRShow<CR>
+inoremap <silent> <leader>y <ESC>:YRShow<CR>
 nnoremap <leader>a :Ack 
 nnoremap <silent> <leader>/ :noh<CR>
 " Enclose current word in single quotes
@@ -148,8 +153,9 @@ nnoremap <leader>' ysw'
 " Split windows easily, and switch immediately
 nnoremap <leader>p <C-w>v<C-w>l 
 
-" Enable some jeyboard shortcuts for MiniBufExplorer:
-let g:miniBufExplMapWindowNavVim = 1
+" Use tab to cycle through YankRing's previous pastes
+let g:yankring_replace_n_nkey = '<tab>'
+let g:yankring_replace_n_pkey = '<S-tab>'
 
 " Save us some keystrokes:
 nnoremap \ ;
@@ -196,5 +202,8 @@ au BufRead,BufNewFile *.text    set filetype=markdown
 au BufRead,BufNewFile *.phn    set filetype=lisp
 
 autocmd filetype scheme nnoremap <silent> <C-c> :! csc %; BNAME=`basename % .scm`; chmod +x $BNAME; ./$BNAME; echo "\n" <CR>
-autocmd filetype rst nnoremap <silent> <leader>gd :! sphinx-build docs/source docs/source/_build <CR>
-
+autocmd filetype rst nnoremap <silent> <leader>gd :! cd docs/source; make html; cd ../..<CR>
+autocmd filetype rst nnoremap <silent> <leader>gc :! mtxrun --script rst --if=% --of=`dirname %`/`basename % .rst`.tex; context `dirname %`/`basename % .rst`.tex; open `dirname %`/`basename % .rst`.pdf<CR>
+autocmd filetype rst set softtabstop=3
+autocmd filetype rst set tabstop=3
+autocmd filetype rst set shiftwidth=3
