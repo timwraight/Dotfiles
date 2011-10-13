@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="tim"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -24,14 +24,11 @@ ZSH_THEME="robbyrussell"
 plugins=(git, brew, git-flow, svn, vagrant)
 # vi-mode
 
-alias gs='git status'
-
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH="/Users/twraight/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/Users/twraight/pear/bin:/Users/twraight/context/tex/texmf-osx-64/bin:$PATH"
-export EDITOR=vim
-export GIT_EDITOR=vim
+export PATH="/Users/twraight/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/Users/twraight/pear/bin:/Users/twraight/context/tex/texmf-osx-64/bin:$PATH"
+
 # Path ------------------------------------------------------------
   if [ -d ~/.local/bin ]; then
     export PATH=~/.local/bin:$PATH exists.
@@ -43,8 +40,4 @@ export GIT_EDITOR=vim
       fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function 
-
-# Key bindings
-bindkey '^[[A' history-beginning-search-backward
-bindkey '^[[B' history-beginning-search-forward
 
