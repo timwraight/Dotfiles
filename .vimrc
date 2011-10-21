@@ -36,6 +36,8 @@ Bundle 'timwraight/vim-markdown'
 Bundle 'veselosky/vim-rst'
 Bundle 'nvie/vim-rst-tables'
 Bundle 'vim-scripts/django.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/LustyJuggler'
 
 " Non github
 Bundle 'git://git.wincent.com/command-t.git'
@@ -95,6 +97,7 @@ set formatprg=par\ -w79" use Par (http://www.nicemice.net/par/) to format paragr
 colorscheme mustang
 set undofile  " Allows undo for closed files. only for Vim 7,3
 set undodir=~/.vim/tmp/undo
+set autoread 
 syntax on
 
 " statusline
@@ -128,8 +131,6 @@ vnoremap <tab> %
 nnoremap j gj
 nnoremap k gk
 
-" Use space to center the screen on the currently highlighted line.
-nnoremap <space> zz 
 " Since in Vim’s default configuration, almost every key is already mapped to
 " a command, there needs to be some sort of standard “free” key where you can
 " place custom mappings under. This is called the “mapleader”, and can be
@@ -147,15 +148,20 @@ nnoremap <silent> <leader>l :set number!<CR>
 nnoremap <silent> <leader>y :YRShow<CR>
 inoremap <silent> <leader>y <ESC>:YRShow<CR>
 nnoremap <leader>a :Ack 
+nnoremap <d-j> :LustyJuggler<CR>
+nnoremap <leader><leader>t :TagbarToggle<CR>
+
 nnoremap <silent> <leader>/ :noh<CR>
 " Enclose current word in single quotes
 nnoremap <leader>' ysw'
 " Split windows easily, and switch immediately
-nnoremap <leader>p <C-w>v<C-w>l 
+nnoremap <leader>p <C-w>v<C-w>l
 
-" Use tab to cycle through YankRing's previous pastes
-let g:yankring_replace_n_nkey = '<tab>'
-let g:yankring_replace_n_pkey = '<S-tab>'
+" Let space skip through the jump list
+nnoremap <space> <Tab>
+" and shift-space skip backwards through it
+nnoremap <S-space> <C-o>
+
 
 " Save us some keystrokes:
 nnoremap \ ;
