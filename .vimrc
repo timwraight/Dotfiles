@@ -65,12 +65,14 @@ set formatoptions=qrnl
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 set backupdir=~/.vim/backups " Where backups will go.
 set directory=~/.vim/tmp     " Where temporary files will g
-set hidden
+set hidden " Abandoned buffers are not closed, just hidden
 set autoindent		" always set autoindenting on
 set copyindent		" copy the previous indentation on autoindenting
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set showmode
+set showcmd
 set expandtab
 set modelines=0 " prevents a particular security exploit from occurring
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
@@ -97,6 +99,8 @@ set laststatus=2 " last window will always have a status line
 set gdefault " by default, all subsitutions happen globally (no need to put /g)
 set formatprg=par\ -w79" use Par (http://www.nicemice.net/par/) to format paragraphs
 set undofile  " Allows undo for closed files. only for Vim 7,3
+set undoreload=10000
+set shell=/usr/local/bin/zsh
 set undodir=~/.vim/tmp/undo
 set autoread 
 syntax enable
@@ -126,7 +130,6 @@ set statusline=%<\ %n:%f\ %{fugitive#statusline()}\ %m%r%y%=%-35.(line:\ %l\ of\
 " make vim use normal regexes for searching
 nnoremap / /\v
 vnoremap / /\v
-
 nnoremap <tab> %
 vnoremap <tab> %
 
