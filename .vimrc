@@ -28,7 +28,9 @@ Bundle 'ornicar/vim-ragtag'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'chrismetcalf/vim-yankring'
-Bundle 'cschlueter/vim-mustang'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'betamike/cocoa.vim'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'timwraight/Vim-Noweb'
@@ -37,10 +39,10 @@ Bundle 'veselosky/vim-rst'
 Bundle 'nvie/vim-rst-tables'
 Bundle 'vim-scripts/django.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/LustyJuggler'
-
-" Non github
-Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'laurentb/vim-cute-php'
+Bundle 'wincent/Command-T'
 
 filetype plugin indent on     " required!
 
@@ -59,7 +61,7 @@ set wrap  " Line wrapping on
 set linebreak " wrap words instead of characters
 set textwidth=79
 set formatoptions=qrnl
-set colorcolumn=80
+"set colorcolumn=80
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 set backupdir=~/.vim/backups " Where backups will go.
 set directory=~/.vim/tmp     " Where temporary files will g
@@ -94,11 +96,12 @@ set backspace=indent,eol,start
 set laststatus=2 " last window will always have a status line
 set gdefault " by default, all subsitutions happen globally (no need to put /g)
 set formatprg=par\ -w79" use Par (http://www.nicemice.net/par/) to format paragraphs
-colorscheme mustang
 set undofile  " Allows undo for closed files. only for Vim 7,3
 set undodir=~/.vim/tmp/undo
 set autoread 
-syntax on
+syntax enable
+colorscheme solarized
+set background=dark
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -148,7 +151,6 @@ nnoremap <silent> <leader>l :set number!<CR>
 nnoremap <silent> <leader>y :YRShow<CR>
 inoremap <silent> <leader>y <ESC>:YRShow<CR>
 nnoremap <leader>a :Ack 
-nnoremap <d-j> :LustyJuggler<CR>
 nnoremap <leader><leader>t :TagbarToggle<CR>
 
 nnoremap <silent> <leader>/ :noh<CR>
@@ -157,11 +159,19 @@ nnoremap <leader>' ysw'
 " Split windows easily, and switch immediately
 nnoremap <leader>p <C-w>v<C-w>l
 
-" Let space skip through the jump list
-nnoremap <space> <Tab>
-" and shift-space skip backwards through it
-nnoremap <S-space> <C-o>
+" Fugitive Mappings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gb  <C-w>h:bd<cr>
+nnoremap <leader>gr :Gread<CR>
 
+" Let space skip through the jump list
+nnoremap <space> <C-o>
+" and shift-space skip backwards through it
+nnoremap <S-space> <Tab>
+" Set shift-return to skip to tag
+nnoremap <S-CR> <C-]>
 
 " Save us some keystrokes:
 nnoremap \ ;
@@ -174,9 +184,19 @@ cnoremap w!! w !sudo tee % >/dev/null
 " Fold current tag
 nnoremap <leader>ft Vatzf
 
+" Terminal-like movement between splits
+nnoremap <D-M-left> <C-w>h
+nnoremap <D-M-right> <C-w>l
+nnoremap <D-M-down> <C-w>j
+nnoremap <D-M-up> <C-k>j
+
 let g:sparkupExecuteMapping = '<d-e>'
 let g:sparkupNextMapping = '<d-r>'
 let g:sparkupArgs = '--no-last-newline --post-tag-guides'
+
+" Gundo settings
+nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_right = 1
 
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
@@ -184,12 +204,11 @@ highlight Pmenu ctermbg=238 gui=bold
 " Save when focus is lost
 au FocusLost * :wa
 
-" Filetype plugins
-filetype plugin indent on
 " Some older versions of Vim can't do autocmd, so to remain compatible
 if has('autocmd')
   " Set php files to be html as well
   autocmd FileType php set ft=php.html
+  autocmd FileType php nmap <leader><leader>l :w!<CR>:! php -l % <CR>
   autocmd filetype html,xml set listchars-=tab:>.
 endif
 
@@ -208,8 +227,5 @@ au BufRead,BufNewFile *.text    set filetype=markdown
 au BufRead,BufNewFile *.phn    set filetype=lisp
 
 autocmd filetype scheme nnoremap <silent> <C-c> :! csc %; BNAME=`basename % .scm`; chmod +x $BNAME; ./$BNAME; echo "\n" <CR>
-autocmd filetype rst nnoremap <silent> <leader>gd :! cd docs/source; make html; cd ../..<CR>
-autocmd filetype rst nnoremap <silent> <leader>gc :! mtxrun --script rst --if=% --of=`dirname %`/`basename % .rst`.tex; context `dirname %`/`basename % .rst`.tex; open `dirname %`/`basename % .rst`.pdf<CR>
-autocmd filetype rst set softtabstop=3
-autocmd filetype rst set tabstop=3
-autocmd filetype rst set shiftwidth=3
+autocmd filetype rst nnoremap <silent> <leader>gd :! cd docs; make html; cd ..<CR>
+"autocmd filetype rst nnoremap <silent> <leader>gc :! mtxrun --script rst --if=% --of=`dirname %`/`basename % .rst`.tex; context `dirname %`/`basename % .rst`.tex; open `dirname %`/`basename % .rst`.pdf<CR>

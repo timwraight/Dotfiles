@@ -6,6 +6,11 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 alias gs='git status'
+alias gl='git log --graph --decorate'
+alias gc='git checkout'
+alias gb='git branch'
+alias gl1='git log --oneline'
+alias gls='git log --oneline --stat'
 
 # Customize to your needs...
 export EDITOR=vim
