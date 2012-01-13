@@ -8,7 +8,11 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 alias gs='git status'
 alias gl='git log --graph --decorate'
 alias gc='git checkout'
+alias gco='git commit'
 alias gb='git branch'
+alias gm='git merge'
+alias ga='git add'
+alias gd='git diff'
 alias gl1='git log --oneline'
 alias gls='git log --oneline --stat'
 

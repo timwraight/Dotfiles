@@ -41,3 +41,4 @@ export PATH="/Users/twraight/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/u
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function 
 
+export TANGENT_USER=wraightt

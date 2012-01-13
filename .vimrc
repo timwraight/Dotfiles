@@ -41,8 +41,13 @@ Bundle 'vim-scripts/django.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'sjl/gundo.vim'
-Bundle 'laurentb/vim-cute-php'
+Bundle 'tomtom/checksyntax_vim/'
+Bundle 'croaker/mustang-vim'
+"Bundle 'laurentb/vim-cute-php'
 Bundle 'wincent/Command-T'
+"Bundle 'kevinw/pyflakes-vim'
+"Bundle 'fs111/pydoc.vim'
+Bundle 'nvie/vim-pep8'
 
 filetype plugin indent on     " required!
 
@@ -81,7 +86,7 @@ set smartcase  " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
 set smarttab      " insert tabs on the start of a line according to
                   "    shiftwidth, not tabstop
-set wildignore=*.swp
+set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
@@ -146,6 +151,7 @@ let mapleader=","
 inoremap <silent> kj <ESC>
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 nnoremap <silent> <leader>o :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.pyc$']
 " Requires Scratch plugin: 
 nnoremap <silent> <leader>s :Sscratch<CR>
 inoremap <silent> <leader>b <C-^>
@@ -222,6 +228,8 @@ au BufRead,BufNewFile *.nw    set filetype=noweb
 au BufRead,BufNewFile *.tao    set filetype=php.html
 au BufRead,BufNewFile *.tpl    set filetype=smarty.html
 
+let g:pyflakes_use_quickfix = 0
+
 let noweb_backend = "tex" 
 let noweb_language = "lisp" 
 let noweb_fold_code = 1 
@@ -231,4 +239,5 @@ au BufRead,BufNewFile *.phn    set filetype=lisp
 
 autocmd filetype scheme nnoremap <silent> <C-c> :! csc %; BNAME=`basename % .scm`; chmod +x $BNAME; ./$BNAME; echo "\n" <CR>
 autocmd filetype rst nnoremap <silent> <leader>gd :! cd docs; make html; cd ..<CR>
+autocmd FileType python map <buffer> <d-l> :call Pep8()<CR>
 "autocmd filetype rst nnoremap <silent> <leader>gc :! mtxrun --script rst --if=% --of=`dirname %`/`basename % .rst`.tex; context `dirname %`/`basename % .rst`.tex; open `dirname %`/`basename % .rst`.pdf<CR>
