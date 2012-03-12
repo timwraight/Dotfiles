@@ -42,7 +42,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tomtom/checksyntax_vim/'
-Bundle 'croaker/mustang-vim'
+"Bundle 'croaker/mustang-vim'
 "Bundle 'laurentb/vim-cute-php'
 Bundle 'wincent/Command-T'
 "Bundle 'kevinw/pyflakes-vim'
@@ -111,6 +111,7 @@ set autoread
 syntax enable
 colorscheme solarized
 set background=dark
+set guicursor+=n-v-c:blinkon0
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -131,10 +132,6 @@ set background=dark
 "   %) end of width specification
 set statusline=%<\ %n:%f\ %{fugitive#statusline()}\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%) 
 
-
-" make vim use normal regexes for searching
-nnoremap / /\v
-vnoremap / /\v
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -185,6 +182,7 @@ nnoremap <S-CR> <C-]>
 " Save us some keystrokes:
 nnoremap \ ;
 nnoremap ; :
+vnoremap ; :
 " Use Q for formatting the current paragraph (or selection)
 vnoremap Q gq
 nnoremap Q gqap

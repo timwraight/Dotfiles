@@ -1,7 +1,4 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
@@ -39,4 +36,3 @@ export PATH="/Users/tim/bin:/Users/tim/Applications/context/tex/texmf-linux/bin:
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function 
 
-source ~/Applications/context/tex/setuptex
