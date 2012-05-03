@@ -42,12 +42,11 @@ Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tomtom/checksyntax_vim/'
-"Bundle 'croaker/mustang-vim'
-"Bundle 'laurentb/vim-cute-php'
 Bundle 'wincent/Command-T'
+Bundle 'nvie/vim-flake8'
 "Bundle 'kevinw/pyflakes-vim'
 "Bundle 'fs111/pydoc.vim'
-Bundle 'nvie/vim-pep8'
+"Bundle 'nvie/vim-pep8'
 
 filetype plugin indent on     " required!
 
@@ -147,6 +146,7 @@ let mapleader=","
 
 inoremap <silent> kj <ESC>
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <leader>n :NERDTreeFocus<CR>
 nnoremap <silent> <leader>o :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$']
 " Requires Scratch plugin: 

@@ -1,6 +1,13 @@
+;; LOAD PATH
+
+(let ((default-directory "~/.emacs.d/vendor/"))
+(normal-top-level-add-to-load-path '("."))
+(normal-top-level-add-subdirs-to-load-path))
+
 ;; WORD WRAPPING
 
-(setq visual-line-mode 1)
+(autoload 'longlines-mode "longlines.el" "Minor mode for editing long lines." t)
+;; (setq visual-line-mode 1)
 
 ;; COLORS
 
@@ -53,12 +60,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-startup-indented 1)
 
-;; ORG-MOBILE
+;; ORG-MODE Agenda
 
-;; Set to the location of your Org files on your local system
-(setq org-directory "~/Dropbox/org")
-(setq org-agenda-files (quote ("~/Dropbox/org/main.org")))
-;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
-;; Set to <your Dropbox root directory>/MobileOrg.
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
+(setq org-agenda-files (quote ("~/Dropbox/org")))
+
+
