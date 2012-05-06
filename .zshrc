@@ -21,12 +21,12 @@ ZSH_THEME="tim"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git, brew, git-flow, svn, vagrant)
+plugins=(git brew pip django gem osx python vundle)
 # vi-mode
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/Users/tim/bin:/Users/tim/Applications/context/tex/texmf-linux/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/noweb:/usr/local/texlive/2010/bin/universal-darwin:/usr/local/git/bin:/usr/local/Cellar/python/2.7/bin"
+export PATH="/usr/local/share/python:/Users/tim/bin:/Users/tim/Applications/context/tex/texmf-linux/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/noweb:/usr/local/texlive/2011/bin/universal-darwin:/usr/local/git/bin:/usr/local/Cellar/python/2.7/bin"
 # Path ------------------------------------------------------------
   if [ -d ~/.local/bin ]; then
     export PATH=~/.local/bin:$PATH exists.
@@ -39,4 +39,7 @@ export PATH="/Users/tim/bin:/Users/tim/Applications/context/tex/texmf-linux/bin:
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function 
 
-source ~/Applications/context/tex/setuptex
+# source ~/Applications/context/tex/setuptex
+export WORKON_HOME=~/Envs
+source virtualenvwrapper.sh
+
