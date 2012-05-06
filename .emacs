@@ -1,15 +1,24 @@
 ;; LOAD PATH
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-(let ((default-directory "~/.emacs.d/lisp/"))
+(let ((default-directory "~/.emacs.d/vendor/"))
+(normal-top-level-add-to-load-path '("."))
 (normal-top-level-add-subdirs-to-load-path))
+
+;; WORD WRAPPING
+
+(autoload 'longlines-mode "longlines.el" "Minor mode for editing long lines." t)
+;; (setq visual-line-mode 1)
+>>>>>>> cbf514d1a02e225c2b04640e374060efb257c653
 
 ;; TABS
 
 (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
 (setq default-tab-width 4)
 
-;; ORG-MOBILE
+;; ORG-MODE Agenda
+
+(setq org-agenda-files (quote ("~/Dropbox/org")))
+
 
 ;; Set to the location of your Org files on your local system
 (setq org-directory "~/Dropbox/org")

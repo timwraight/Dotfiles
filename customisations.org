@@ -146,7 +146,7 @@ Internal to emacs; also seems not to work on OS X.
 #+begin_src emacs-lisp
 ;; Allow hash to be entered  
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 140)
 #+end_src emacs-lisp
 ** Local LaTeX settings
 *** In-text Smart Quotes (XeLaTeX only)
@@ -382,8 +382,8 @@ When in an org-mode buffer, bind TeX-insert-quote to =C-c "=. Turned off by defa
       "When exporting from .org with latex, automatically run latex,
                        pdflatex, or xelatex as appropriate, using latexmk."
       (let ((texcmd)))
-      ;; default command: pdflatex 
-      (setq texcmd "latexmk -pdflatex='pdflatex --shell-escape' -pdf %f")        
+      ;; default command: xelatex
+      (setq texcmd "latexmk -pdflatex='xelatex --shell-escape' -pdf %f")        
       ;; pdflatex -> .pdf
       (if (string-match "LATEX_CMD: pdflatex" (buffer-string))
           (setq texcmd "latexmk -pdflatex='pdflatex --shell-escape' -pdf %f"))
@@ -407,11 +407,7 @@ When in an org-mode buffer, bind TeX-insert-quote to =C-c "=. Turned off by defa
       ;; default packages for ordinary latex or pdflatex export
       (setq org-export-latex-default-packages-alist
             '(("AUTO" "inputenc" t)
-              ("minted,minion" "org-preamble-pdflatex" t)))        
-      ;; Packages to include when xelatex is used
-      (if (string-match "LATEX_CMD: xelatex" (buffer-string))
-          (setq org-export-latex-default-packages-alist
-                '(("minted" "org-preamble-xelatex" t) ))))
+              ("minted" "org-preamble-xelatex" t)))        
     
     (add-hook 'org-export-latex-after-initial-vars-hook 'my-auto-tex-parameters)      
 #+end_src
@@ -441,7 +437,7 @@ When in an org-mode buffer, bind TeX-insert-quote to =C-c "=. Turned off by defa
          (if (or (not desc) (equal 0 (search "parencite:" desc)))
                (format "\\parencite{%s}" path)
                (format "\\parencite[%s]{%s}" desc path)
-  )))))
+  ))))))
   
   (org-add-link-type 
      "textcite" 'ebib
@@ -538,8 +534,9 @@ Create =html= files form the =org= sources, to help with documentation. To set u
 *** Tim Miscellaneous
 #+begin_src emacs-lisp
   (setq org-startup-indented t)
-  (add-hook 'org-mode-hook (lambda () (variable-pitch-mode t)))
+  (add-hook 'org-mode-hook (lambda ()  (variable-pitch-mode t)))
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (setq org-export-latex-default-class "memarticle")
 #+end_src 
   
 #+END_SRC
