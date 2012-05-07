@@ -140,14 +140,6 @@ Internal to emacs; also seems not to work on OS X.
              )))
 #+end_src
 
-
-*** Tim Miscellaneous
-#+srcname: pound-sign
-#+begin_src emacs-lisp
-;; Allow hash to be entered  
-(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
-(set-face-attribute 'default nil :height 140)
-#+end_src emacs-lisp
 ** Local LaTeX settings
 *** In-text Smart Quotes (XeLaTeX only)
     Redefine TeX-open-quote and TeX-close-quote to be smart quotes by default. Below, in the local org-mode settings, we'll also map the relevant function to a key we can use in org-mode, too. If you don't use XeLaTeX for processing all your =.tex= files, you should disable this option.
@@ -531,15 +523,6 @@ Create =html= files form the =org= sources, to help with documentation. To set u
     (setq org-export-html-style-extra "") 
     (setq org-export-html-postamble nil)
 #+end_src
-*** Tim Miscellaneous
-#+begin_src emacs-lisp
-  (setq org-startup-indented t)
-  (add-hook 'org-mode-hook (lambda ()  (variable-pitch-mode t)))
-  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
-  (setq org-export-latex-default-class "memarticle")
-#+end_src 
-  
-#+END_SRC
 
 ** Auto-complete mode
    Powerful autocompletion; experimentally added. Will pop-up
@@ -581,13 +564,82 @@ Sometimes useful for getting help on R or Emacs.
                        '("irc.freenode.net"))
 #+end_src
 
+** Tim
+*** ido
+#+begin_src emacs-lisp
+(setq ido-file-extensions-order '(".org" ".py" ".rc"))
+#+end_src
+*** Python
+#+begin_src emacs-lisp
+(require 'pony-mode)
+(when (load "flymake" t)
+  (defun flymake-pylint-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "~/.emacs.d/src/flymake-python/pyflymake.py" (list local-file))))
+
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.py\\'" flymake-pylint-init)))
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+#+end_src
+*** Org
+#+begin_src emacs-lisp
+  (setq org-directory "~/Dropbox/org")
+  (setq org-default-notes-file (concat org-directory "/notes.org")) 
+  (define-key global-map "\C-cc" 'org-capture)
+  (setq org-startup-indented t)
+  (add-hook 'org-mode-hook (lambda ()  (variable-pitch-mode t)))
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (setq org-export-latex-default-class "memarticle")
+  (setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
+  (setq org-completion-use-ido t)
+  (setq org-insert-heading-respect-content t)
+  (setq org-return-follows-link t)
+  (setq org-special-ctrl-a/e t)
+  (setq org-use-speed-commands t)
+  (setq org-speed-commands-user nil)
+  (setq org-startup-align-all-tables t)
+      ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+  (setq org-refile-targets (quote ((nil :maxlevel . 9)
+                                   (org-agenda-files :maxlevel . 9))))
+  ; Use full outline paths for refile targets - we file directly with IDO
+  (setq org-refile-use-outline-path t)
+  ; Targets complete directly with IDO
+  (setq org-outline-path-complete-in-steps nil)
+  ; Allow refile to create parent tasks with confirmation
+  (setq org-refile-allow-creating-parent-nodes (quote confirm))
+  ; Use IDO for both buffer and file completion and ido-everywhere to t
+  (setq org-completion-use-ido t)
+  (setq ido-everywhere t)
+  (setq ido-max-directory-size 100000)
+  (ido-mode (quote both))
+  ; Exclude DONE state tasks from refile targets
+  (defun bh/verify-refile-target ()
+    "Exclude todo keywords with a done state from refile targets"
+    (not (member (nth 2 (org-heading-components)) org-done-keywords)))
+    (setq org-refile-target-verify-function 'bh/verify-refile-target)  
+#+END_SRC
+*** Miscellaneous
+#+srcname: pound-sign
+#+begin_src emacs-lisp
+;; Allow hash to be entered  
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+(set-face-attribute 'default nil :height 140)
+(speedbar t)
+ (global-set-key (kbd "C-S-s") 'speedbar-get-focus)
+(set-scroll-bar-mode 'nil)
+(setq explicit-shell-file-name "/bin/bash")
+#+end_src emacs-lisp
 ** Final Custom elements
 Some last tweaks. 
 
 #+srcname: final-custom
 #+begin_src emacs-lisp
-  ;; Line-spacing tweak (Optimized for PragmataPro)
-  (setq-default line-spacing 5)
+  ;; Line-spacing tweak (Optimized for Menlo)
+  (setq-default line-spacing 4)
   
   ;; minimize fringe
   (setq-default indicate-empty-lines nil)
@@ -614,9 +666,5 @@ Some last tweaks.
   '(text-mode-hook (quote (text-mode-hook-identify)))
   )
 #+end_src
-   
-   
-   
-   
-   
-   
+
+ 
