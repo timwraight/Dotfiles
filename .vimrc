@@ -65,7 +65,7 @@ set wrap  " Line wrapping on
 set linebreak " wrap words instead of characters
 set textwidth=79
 set formatoptions=qrnl
-"set colorcolumn=80
+set colorcolumn=85
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 set backupdir=~/.vim/backups " Where backups will go.
 set directory=~/.vim/tmp     " Where temporary files will g
@@ -111,6 +111,8 @@ syntax enable
 colorscheme solarized
 set background=dark
 set guicursor+=n-v-c:blinkon0
+set list
+set listchars=tab:▸\ ,eol:¬
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
