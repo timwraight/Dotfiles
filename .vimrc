@@ -111,8 +111,6 @@ syntax enable
 colorscheme solarized
 set background=dark
 set guicursor+=n-v-c:blinkon0
-set list
-set listchars=tab:▸\ ,eol:¬
 
 " statusline
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P

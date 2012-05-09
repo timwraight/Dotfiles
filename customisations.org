@@ -596,7 +596,6 @@ Sometimes useful for getting help on R or Emacs.
   (setq org-export-latex-default-class "memarticle")
   (setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
   (setq org-completion-use-ido t)
-  (setq org-insert-heading-respect-content t)
   (setq org-return-follows-link t)
   (setq org-special-ctrl-a/e t)
   (setq org-use-speed-commands t)
