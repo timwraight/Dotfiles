@@ -622,10 +622,9 @@ Sometimes useful for getting help on R or Emacs.
     (setq org-refile-target-verify-function 'bh/verify-refile-target)  
 #+END_SRC
 *** Miscellaneous
-#+srcname: pound-sign
 #+begin_src emacs-lisp
-;; Allow hash to be entered  
-(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+; Set right alt key to be normal Mac modifier key
+(setq mac-right-option-modifier nil)
 (set-face-attribute 'default nil :height 140)
 (speedbar t)
  (global-set-key (kbd "C-S-s") 'speedbar-get-focus)
