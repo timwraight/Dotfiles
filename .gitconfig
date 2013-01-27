@@ -22,7 +22,7 @@
         changed = green
         untracked = cyan
 [core]
-	excludesfile = /Users/tim/.gitignore_global
+	excludesfile = ~/.gitignore_global
     pager = less -FRSX
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     editor = mvim --remote-tab-wait
