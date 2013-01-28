@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+*.pyc
 
 # Packages #
 ############
@@ -23,7 +24,6 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
 *.sqlite
 
 # OS generated files #
@@ -36,10 +36,29 @@ Thumbs.db
 # Temp Files #
 ##############
 ~*
+*~
 .*.un~
 .*.un
 .netrwhist
 
+# Flymake files #
+#################
+\#*\#
+.\#*
+*_flymake*
+
 # TeX Temp Files #
 ##################
 .top
+
+# Eclipse/Java #f
+################
+.classpath
+.project
+
+
+.vagrantfile
+*.tmp
+.dir-locals.el
+.ropeproject
+tags
