@@ -19,7 +19,7 @@ hi -a StatusLine font-weight: normal;
 hi -a StatusLineNormal color:#969896 !important; background:#282A2E !important;
 
 " font options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi FontCode -a font-family: Menlo important; font-size: 10pt !important;
+he FontCode -a font-family: Menlo important; font-size: 10pt !important;
 hi FontFixed -a font-family: Menlo !important; font-size: 10pt !important;
 hi Normal -a font-family: Menlo !important; font-size: 10pt !important;
 
