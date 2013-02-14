@@ -28,7 +28,7 @@
 
 # OS generated files #
 ######################
-.DS_Store?
+.DS_Store
 ehthumbs.db
 Icon?
 Thumbs.db
@@ -36,6 +36,8 @@ Thumbs.db
 # Temp Files #
 ##############
 ~*
+*~
+*#
 .*.un~
 .*.un
 .netrwhist
