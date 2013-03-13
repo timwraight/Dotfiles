@@ -27,6 +27,7 @@ alias grs='git rebase --skip'
 alias gmt='git mergetool'
 alias gfo='git fetch origin'
 alias gcf='git clean -f'
+alias gcl='git clone'
 
 
 # Fabric
