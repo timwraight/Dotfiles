@@ -5,7 +5,7 @@
 loadplugins '\.(js|penta)$'
 group user
 
-" options """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guioptions-=br
 set guioptions+=n
 set hlfind
@@ -132,4 +132,4 @@ tt {
 }
 EOM
 
-autocmd LocationChange google.com :normal! <C-z>
+autocmd LocationChange mail.google.com :normal! <C-z>
