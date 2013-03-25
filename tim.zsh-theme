@@ -45,3 +45,4 @@ bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
 export TERM=xterm-256color
+autoload -U zmv
