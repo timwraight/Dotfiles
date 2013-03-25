@@ -19,9 +19,9 @@ hi -a StatusLine font-weight: normal;
 hi -a StatusLineNormal color:#969896 !important; background:#282A2E !important;
 
 " font options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-he FontCode -a font-family: "Lucida Grande" important; font-size: 14pt !important;
-hi FontFixed -a font-family: "Lucida Grande" !important; font-size: 14pt !important;
-hi Normal -a font-family: "Lucida Grande" !important; font-size: 14pt !important;
+he FontCode -a font-family: "Lucida Grande" important; font-size: 12pt !important;
+hi FontFixed -a font-family: "Lucida Grande" !important; font-size: 12pt !important;
+hi Normal -a font-family: "Lucida Grande" !important; font-size: 12pt !important;
 
 " custom mappings """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map , <Leader>
