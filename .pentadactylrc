@@ -11,7 +11,7 @@ set guioptions+=n
 set hlfind
 
 " hintkeys """"""""""
-" set highlight -a Hint text-transform: uppercase;	
+" set highlight -a Hint text-transform: uppercase;
 set hintkeys='asdfjkl;'
 
 " status line """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,6 +26,27 @@ hi Normal -a font-family: "Lucida Grande" !important; font-size: 14pt !important
 " custom mappings """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map , <Leader>
 nmap -builtin <Leader>, :noh<CR>
+" Arrow keys to lalopmak versions
+nnoremap u k
+nnoremap e j
+nnoremap i l
+nnoremap n h
+
+" History keys, too
+nnoremap N H
+nnoremap I L
+
+nnoremap h <Space>
+nnoremap j <S-Space>
+
+" Search to lalopmak version
+nnoremap k n
+
+" Yank to lalopmak version
+nnoremap c y
+
+" Undo to lalopmak version
+nnoremap p u
 
 " toggle styles """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map -builtin <F3> :styletoggle<Space>-name<Space>tomorrownight<CR>
