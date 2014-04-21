@@ -35,10 +35,6 @@ alias gcl='git clone'
 # Fabric
 alias fsd='fab stage deploy:branch=stage'
 
-# Customize to your needs...
-export EDITOR=vim
-export GIT_EDITOR=vim
-
 alias top3="ps aux | sort -k3 -r | head -n 3 | awk '{ print$3, \" \",  $11  }'"
 alias myip="ifconfig | grep inet | tail -n 1 | awk '{ print $2 }'"
 
@@ -47,3 +43,4 @@ bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
 
 export TERM=xterm-256color
+autoload -U zmv
