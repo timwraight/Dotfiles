@@ -49,6 +49,10 @@ Thumbs.db
 .\#*
 *_flymake*
 
+# Flycheck files #
+#################
+flycheck-*
+
 # TeX Temp Files #
 ##################
 .top
@@ -61,6 +65,11 @@ Thumbs.db
 
 .vagrantfile
 *.tmp
+*.orig
 .dir-locals.el
 .ropeproject
 tags
+.vagrant
+workbench.xmi
+*.dump
+*.noseids

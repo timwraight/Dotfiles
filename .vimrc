@@ -4,7 +4,7 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle #rc()
 
 " let Vundle manage Vundle
 " required!
@@ -56,7 +56,7 @@ set undolevels=1000		" allow 1000 levels of undo
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set ofu=syntaxcomplete#Complete " Turn on OmniComplete
-set completeopt=longest,menuone " Complete as much as possible of the word, 
+set completeopt=longest,menuone " Complete as much as possible of the word,
 " and show menu even if there's only one match
 set hlsearch      " highlight search terms
 set incsearch		" do incremental searching
@@ -94,11 +94,11 @@ set nowritebackup
 set noswapfile
 set encoding=utf-8
 set scrolloff=3  " makes vim keep 3 lines of context on screen above/below cursor
-set wildmode=list:longest 
-set cursorline 
+set wildmode=list:longest
+set cursorline
 set ttyfast " speeds up chracter drawing,
-set ruler 
-set backspace=indent,eol,start 
+set ruler
+set backspace=indent,eol,start
 set laststatus=2 " last window will always have a status line
 set gdefault " by default, all subsitutions happen globally (no need to put /g)
 set formatprg=par\ -w79" use Par (http://www.nicemice.net/par/) to format paragraphs
@@ -106,7 +106,7 @@ set undofile  " Allows undo for closed files. only for Vim 7,3
 set undoreload=10000
 set shell=/usr/local/bin/zsh
 set undodir=~/.vim/tmp/undo
-set autoread 
+set autoread
 syntax enable
 colorscheme solarized
 set background=dark
@@ -129,7 +129,7 @@ set guicursor+=n-v-c:blinkon0
 "   %V current virtual column number (-n), if different from %c
 "   %P percentage through buffer
 "   %) end of width specification
-set statusline=%<\ %n:%f\ %{fugitive#statusline()}\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%) 
+set statusline=%<\ %n:%f\ %{fugitive#statusline()}\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 
 nnoremap <tab> %
 vnoremap <tab> %
@@ -149,14 +149,14 @@ nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 nnoremap <silent> <leader>n :NERDTreeFocus<CR>
 nnoremap <silent> <leader>o :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$']
-" Requires Scratch plugin: 
+" Requires Scratch plugin:
 nnoremap <silent> <leader>s :Sscratch<CR>
 inoremap <silent> <leader>b <C-^>
 nnoremap <silent> <leader>b <C-^>
 nnoremap <silent> <leader>l :set number!<CR>
 nnoremap <silent> <leader>y :YRShow<CR>
 inoremap <silent> <leader>y <ESC>:YRShow<CR>
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack
 nnoremap <leader><leader>t :TagbarToggle<CR>
 
 nnoremap <silent> <leader>/ :noh<CR>
@@ -222,15 +222,15 @@ endif
 let g:tex_flavor = "context"
 au BufNewFile,BufRead *.pkg set filetype=xml
 
-au BufRead,BufNewFile *.nw    set filetype=noweb 
+au BufRead,BufNewFile *.nw    set filetype=noweb
 au BufRead,BufNewFile *.tao    set filetype=php.html
 au BufRead,BufNewFile *.tpl    set filetype=smarty.html
 
 let g:pyflakes_use_quickfix = 0
 
-let noweb_backend = "tex" 
-let noweb_language = "lisp" 
-let noweb_fold_code = 1 
+let noweb_backend = "tex"
+let noweb_language = "lisp"
+let noweb_fold_code = 1
 
 au BufRead,BufNewFile *.text    set filetype=markdown
 au BufRead,BufNewFile *.phn    set filetype=lisp
