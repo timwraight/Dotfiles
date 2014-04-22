@@ -34,6 +34,27 @@ hi StatusLine -a font-family: Menlo !important;
 " custom mappings """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map , <Leader>
 nmap -builtin <Leader>, :noh<CR>
+" Arrow keys to lalopmak versions
+nnoremap u k
+nnoremap e j
+nnoremap i l
+nnoremap n h
+
+" History keys, too
+nnoremap N H
+nnoremap I L
+
+nnoremap h <Space>
+nnoremap j <S-Space>
+
+" Search to lalopmak version
+nnoremap k n
+
+" Yank to lalopmak version
+nnoremap c y
+
+" Undo to lalopmak version
+nnoremap p u
 
 " For autocomplete, use [s]earch engine URLs, [l]ocation matches from Firefox's
 " history and bookmarks, local [f]iles, and [S]earch engine suggestions.
