@@ -22,7 +22,7 @@ noremap b :bmarks -T
 colorscheme zenburn
 
 " hintkeys """"""""""
-set hintkeys='asdfjkl;'
+set hintkeys='arstneio'
 highlight -a Hint text-transform: uppercase;
 
 " font options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
