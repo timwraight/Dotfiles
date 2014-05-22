@@ -12,11 +12,6 @@ set showtabline=always
 set editor='emacsclient +<line>:<column> <file>'
 set hlfind
 
-noremap kj <Esc>
-inoremap kj <Esc>
-vnoremap kj <Esc>
-cnoremap kj <Esc>
-
 noremap b :bmarks -T
 
 colorscheme zenburn
@@ -39,6 +34,16 @@ nnoremap u k
 nnoremap e j
 nnoremap i l
 nnoremap n h
+
+" O to S, as it's better for the pinky on Colemak
+nnoremap s o
+nnoremap ; :
+
+" tab movement
+nnoremap <C-i> gt
+nnoremap <C-n> gT
+" jump between last selected tabs
+nnoremap <C-r> <C-^>
 
 " History keys, too
 nnoremap N H
