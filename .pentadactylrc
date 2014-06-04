@@ -22,6 +22,8 @@ set findcase=smart
 nmap a a<Space>-tags<Space>
 " disable highlight
 map <Leader>/ :set hlf!<CR>
+" show status bar when in full screen mode
+au Fullscreen .* :set guioptions+=s
 
 " BOOKMARKS {{{
 " search engines
