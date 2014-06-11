@@ -12,7 +12,7 @@ set showtabline=always
 set editor='emacsclient +<line>:<column> <file>'
 set hlfind
 
-noremap b :bmarks -T
+map -builtin b :bmarks -T
 
 colorscheme zenburn
 
@@ -30,36 +30,37 @@ hi StatusLine -a font-family: Menlo !important;
 map , <Leader>
 nmap -builtin <Leader>, :noh<CR>
 " Arrow keys to lalopmak versions
-nnoremap u k
-nnoremap e j
-nnoremap i l
-nnoremap n h
+nmap -builtin u k
+nmap -builtin e j
+nmap -builtin i l
+nmap -builtin n h
 
 " O to S, as it's better for the pinky on Colemak
-nnoremap s o
-nnoremap ; :
+nmap -builtin s o
+nmap -builtin ; :
+nmap -builtin : ;
 
 " tab movement
-nnoremap <C-i> gt
-nnoremap <C-n> gT
+nmap -builtin <C-i> gt
+nmap -builtin <C-n> gT
 " jump between last selected tabs
-nnoremap <C-r> <C-^>
+nmap -builtin <C-r> <C-^>
 
 " History keys, too
-nnoremap N H
-nnoremap I L
+nmap -builtin N H
+nmap -builtin I L
 
-nnoremap h <Space>
-nnoremap j <S-Space>
+nmap -builtin h <Space>
+nmap -builtin j <S-Space>
 
 " Search to lalopmak version
-nnoremap k n
+nmap -builtin k n
 
 " Yank to lalopmak version
-nnoremap c y
+nmap -builtin c y
 
 " Undo to lalopmak version
-nnoremap p u
+nmap -builtin p u
 
 " For autocomplete, use [s]earch engine URLs, [l]ocation matches from Firefox's
 " history and bookmarks, local [f]iles, and [S]earch engine suggestions.
