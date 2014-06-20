@@ -67,8 +67,8 @@ nmap -builtin ; :
 nmap -builtin : ;
 
 " tab movement
-nmap -builtin <C-i> gt
-nmap -builtin <C-n> gT
+nmap -builtin <A-i> gt
+nmap -builtin <A-n> gT
 " jump between last selected tabs
 nmap -builtin <C-r> <C-^>
 
@@ -76,8 +76,8 @@ nmap -builtin <C-r> <C-^>
 nmap -builtin N H
 nmap -builtin I L
 
-nmap -builtin h <Space>
-nmap -builtin j <S-Space>
+nmap -builtin <A-e> <Space>
+nmap -builtin <A-u> <S-Space>
 
 " Search to lalopmak version
 nmap -builtin k n
@@ -88,8 +88,11 @@ nmap -builtin c y
 " Undo to lalopmak version
 nmap -builtin p u
 
+nmap -builtin b :bmarks!
+
+
 " For autocomplete, use [s]earch engine URLs, [l]ocation matches from Firefox's
 " history and bookmarks, local [f]iles, and [S]earch engine suggestions.
 " set complete=bhSsfl
 set complete=blSfs
-set defsearch=duckduckgo
+" set defsearch=duckduckgo
