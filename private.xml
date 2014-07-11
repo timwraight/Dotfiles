@@ -36,6 +36,18 @@
     <autogen>--KeyToKey-- KeyCode::QUOTE,     ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
   </item>
   <item>
+      <name>Command_R to Meta_R</name>
+      <appendix>(+ When you type Command_R only, send escape)</appendix>
+      <identifier>remap.commandr_to_meta_escape</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::OPTION_R, KeyCode::ESCAPE</autogen>
+  </item>
+  <item>
+      <name>Control_L to Control_L</name>
+      <appendix>(+ When you type Control_L only, send semicolon)</appendix>
+      <identifier>remap.controll_to_controll_semicolon</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::CONTROL_L, KeyCode::CONTROL_L, KeyCode::P</autogen>
+  </item>
+  <item>
       <name>Meta_R to Meta_R</name>
       <appendix>(+ When you type Meta_R only, send escape)</appendix>
       <identifier>remap.metar_to_meta_escape</identifier>
@@ -46,5 +58,14 @@
       <appendix>(+ When you type Meta_L only, send semicolon)</appendix>
       <identifier>remap.controll_to_controll_semicolon</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::OPTION_L, KeyCode::P</autogen>
+  </item>
+  <item>
+    <name>Left Shift to Opening Parenthesis</name>
+    <appendix>Left Shift, when pressed alone, types an opening parenthesis.  When used with other keys it's a normal shift.</appendix>
+
+    <identifier>remap.shiftl_to_open_paren</identifier>
+
+    <!-- This is the basic mapping. -->
+    <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
   </item>
 </root>
