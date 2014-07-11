@@ -56,7 +56,7 @@
   <item>
       <name>Meta_L to Meta_L</name>
       <appendix>(+ When you type Meta_L only, send semicolon)</appendix>
-      <identifier>remap.controll_to_controll_semicolon</identifier>
+      <identifier>remap.metal_to_metal_semicolon</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::OPTION_L, KeyCode::P</autogen>
   </item>
   <item>
