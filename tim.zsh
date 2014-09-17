@@ -27,14 +27,6 @@ alias grm='git rebase master'
 alias grs='git rebase --skip'
 alias gs='git status'
 
-# WORKON abbreviations #
-alias ,d='workon dashboard'
-alias ,s='workon sl'
-alias ,m='workon mypc'
-alias ,n='workon national_accounts'
-alias ,i='cd ~/Documents/workspace/sites/wolseley/is'
-alias ,t='cd /Users/twraight/Documents/workspace/sites/wolseley/toolkit-data-selector'
-
 # use colordiff as default diff tool
 alias diff=colordiff
 
