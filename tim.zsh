@@ -47,20 +47,22 @@ DISABLE_AUTO_TITLE=true
 
 
 # Use vi keymap
-bindkey -M viins '^r' history-incremental-search-backward
-bindkey -M viins '^s' history-incremental-search-forward
-bindkey -M viins '^u' history-beginning-search-backward
-bindkey -M viins '^e' history-beginning-search-forward
-bindkey -M vicmd '^R' history-incremental-search-backward
+bindkey -M viins '^[r' history-incremental-search-backward
+bindkey -M viins '^[s' history-incremental-search-forward
+bindkey -M viins '^[u' history-beginning-search-backward
+bindkey -M viins '^[e' history-beginning-search-forward
+bindkey -M viins '^[i' forward-word
+bindkey -M viins '^[n' backward-word
+bindkey -M vicmd '^[i' forward-word
+bindkey -M vicmd '^[n' backward-word
 bindkey -M vicmd 'u' history-beginning-search-backward
 bindkey -M vicmd 'e' history-beginning-search-forward
 bindkey -M vicmd 'i' vi-forward-char
 bindkey -M vicmd 'n' vi-backward-char
-bindkey -M vicmd 'l' vi-backward-word
 bindkey -M vicmd 'y' vi-forward-word
 bindkey -M vicmd 'T' vi-change-eol
-bindkey -M vicmd 'S' vi-add-eol
-bindkey -M vicmd 'R' vi-insert-bol
-bindkey -M vicmd 'r' vi-insert
-bindkey -M vicmd 's' vi-add-next
+bindkey -M vicmd '^[Y' vi-add-eol
+bindkey -M vicmd 'Y' vi-insert-bol
+bindkey -M vicmd 'y' vi-insert
+bindkey -M vicmd '^[y' vi-add-next
 bindkey -M vicmd 't' vi-change
