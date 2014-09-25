@@ -4,6 +4,7 @@
 
 loadplugins '\.(js|penta)$'
 group user
+colorscheme zenburn
 
 " options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guioptions-=br
@@ -40,7 +41,6 @@ command! beeline -description "Use BeeLine service to make docs easier to read" 
 
 map -builtin b :bmarks -T
 
-colorscheme zenburn
 
 " hintkeys """"""""""
 set hintkeys='arstneio'
@@ -48,9 +48,9 @@ highlight -a Hint text-transform: uppercase;
 
 " font options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 hi Normal -a font-size: 15px !important;
-hi Normal -a font-family: Menlo !important;
+hi Normal -a font-family: Consolas !important;
 hi StatusLine -a font-size: 15px !important;
-hi StatusLine -a font-family: Menlo !important;
+hi StatusLine -a font-family: Consolas !important;
 
 " custom mappings """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map , <Leader>

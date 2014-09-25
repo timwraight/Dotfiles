@@ -47,11 +47,14 @@ DISABLE_AUTO_TITLE=true
 
 
 # Use vi keymap
-bindkey -M viins '^r' history-incremental-search-backward
-bindkey -M viins '^s' history-incremental-search-forward
+bindkey -M viins '^[r' history-incremental-search-backward
+bindkey -M viins '^[s' history-incremental-search-forward
 bindkey -M viins '^[u' history-beginning-search-backward
 bindkey -M viins '^[e' history-beginning-search-forward
-bindkey -M vicmd '^R' history-incremental-search-backward
+bindkey -M viins '^[i' forward-word
+bindkey -M viins '^[n' backward-word
+bindkey -M vicmd '^[i' forward-word
+bindkey -M vicmd '^[n' backward-word
 bindkey -M vicmd 'u' history-beginning-search-backward
 bindkey -M vicmd 'e' history-beginning-search-forward
 bindkey -M vicmd 'i' vi-forward-char
