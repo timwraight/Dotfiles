@@ -64,3 +64,10 @@ bindkey -M vicmd 'Y' vi-insert-bol
 bindkey -M vicmd 'y' vi-insert
 bindkey -M vicmd '^[y' vi-add-next
 bindkey -M vicmd 't' vi-change
+
+
+# Get ip address easily
+alias getip='ipconfig getifaddr en1'
+
+# docker
+alias clean-images='docker rmi $(docker images -q --filter "dangling=true")'
