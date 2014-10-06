@@ -74,5 +74,53 @@ bindkey -M vicmd 't' vi-change
 # Get ip address easily
 alias getip='ipconfig getifaddr en1'
 
-# docker
+# DOCKER
+
 alias clean-images='docker rmi $(docker images -q --filter "dangling=true")'
+
+
+# Add these functions to your ~/.bashrc in order to be able to query private
+# Docker registries from the commandline. You'll need the JQ library
+# (http://stedolan.github.io/jq/) to be installed. Alternatively, you can just
+# pipe to " python -mjson.tool" to get pretty JSON formatting
+
+# TODO Enter the correct details here
+# DOCKER_REGISTRY_HOST=XXX
+# DOCKER_REGISTRY_AUTH=XXX
+
+# DOCKER_STAGE_HOST=XXX
+# DOCKER_STAGE_AUTH=XXX
+
+# PROD
+
+function _docker_fetch() {
+    echo $1
+    curl -s --user $DOCKER_REGISTRY_AUTH $1 | jq '.'
+}
+
+# List repos (query string is optional)
+function docker_live_search() {
+    _docker_fetch https://$DOCKER_REGISTRY_HOST/v1/search?q=$1
+}
+
+# List tags for a repo
+function docker_live_tags() {
+    _docker_fetch https://$DOCKER_REGISTRY_HOST/v1/repositories/$1/tags
+}
+
+# STAGE
+
+function _docker_stage_fetch() {
+    echo $1
+    curl -s --user $DOCKER_STAGE_AUTH $1 | jq '.'
+}
+
+# List repos (query string is optional)
+function docker_stage_search() {
+    _docker_stage_fetch https://$DOCKER_STAGE_HOST/v1/search?q=$1
+}
+
+# List tags for a repo
+function docker_stage_tags() {
+    _docker_stage_fetch https://$DOCKER_STAGE_HOST/v1/repositories/$1/tags
+}
