@@ -117,7 +117,12 @@ function _docker_stage_fetch() {
 
 # List repos (query string is optional)
 function docker_stage_search() {
-    _docker_stage_fetch https://$DOCKER_STAGE_HOST/v1/search?q=$1
+    if [ -z "$1" ]; then
+        QUERY_STRING=""
+    else
+        QUERY_STRING=$1
+    fi
+    _docker_stage_fetch "https://$DOCKER_STAGE_HOST/v1/search?q=$QUERY_STRING"
 }
 
 # List tags for a repo
