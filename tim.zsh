@@ -26,6 +26,9 @@ alias grc='git rebase --continue'
 alias grm='git rebase master'
 alias grs='git rebase --skip'
 alias gs='git status'
+# Get next unmerged file (u for unmerged)
+# crazy escaping needed for awk
+alias gu='gs --porcelain | grep UU | head -1 | awk '"'"'{print $2}'"'"''
 
 # use colordiff as default diff tool
 alias diff=colordiff
@@ -36,13 +39,22 @@ alias fsd='fab stage deploy:branch=stage'
 alias top3="ps aux | sort -k3 -r | head -n 3 | awk '{ print$3, \" \",  $11  }'"
 alias myip="ifconfig | grep inet | tail -n 1 | awk '{ print $2 }'"
 alias gbh=git_branch_history
-alias p="ps aux | grep"
-
+alias p="ps aux | grep -i"
+alias pipfind="pip freeze | grep -i"
 
 
 # Key bindings
 bindkey '^[[A' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
+bindkey '^[u' history-beginning-search-backward
+bindkey '^[e' history-beginning-search-forward
+bindkey '^[i' forward-word
+bindkey '^[n' backward-word
+bindkey '^[N' backward-char
+bindkey '^[I' forward-char
+bindkey '^[D' delete-char
+bindkey '^[k' kill-line
+bindkey '^[a' beginning-of-line
 
 autoload -U zmv
 DISABLE_AUTO_TITLE=true
@@ -78,6 +90,13 @@ alias getip='ipconfig getifaddr en1'
 
 alias clean-images='docker rmi $(docker images -q --filter "dangling=true")'
 
+alias dp='docker ps | less -S'
+alias dk='docker kill'
+alias de='docker exec -it'
+alias di='docker images'
+alias drmi='docker rmi'
+alias dl='docker logs'
+
 
 # Add these functions to your ~/.bashrc in order to be able to query private
 # Docker registries from the commandline. You'll need the JQ library
@@ -90,6 +109,8 @@ alias clean-images='docker rmi $(docker images -q --filter "dangling=true")'
 
 # DOCKER_STAGE_HOST=XXX
 # DOCKER_STAGE_AUTH=XXX
+
+export LESS='-R -S'
 
 # PROD
 
