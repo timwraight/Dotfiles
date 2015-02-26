@@ -9,7 +9,7 @@ colorscheme zenburn
 " options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guioptions-=br
 set guioptions+=n
-set showtabline=always
+set showtabline=never
 set editor='/usr/local/bin/emacsclient +<line>:<column> <file>'
 " highlight all search matches, not just the first
 set hlfind
@@ -39,8 +39,11 @@ command! beeline -description "Use BeeLine service to make docs easier to read" 
 "http://www.instapaper.com/u
 " command! bml-instapaper -description "Bookmarklet: A simple tool to save web pages for reading later" open javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src',l.protocol+'//www.instapaper.com/j/bQ1lnqqYCoKr?u='+encodeURIComponent(l.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)
 
-map -builtin b :bmarks! -title
-map -builtin h :hist!
+map -builtin b :buffer  
+map -builtin B :bmarks 
+map -builtin h :hist 
+" focus link, causing it to be shown in status bar
+map -builtin f ;;
 
 
 " hintkeys """"""""""
@@ -93,5 +96,5 @@ nmap -builtin p u
 " For autocomplete, use [s]earch engine URLs, [l]ocation matches from Firefox's
 " history and bookmarks, local [f]iles, and [S]earch engine suggestions.
 " set complete=bhSsfl
-set complete=blSfs
-" set defsearch=duckduckgo
+" set complete=blSfs
+set defsearch=g
