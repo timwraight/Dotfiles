@@ -43,7 +43,7 @@ map -builtin b :buffer
 map -builtin B :bmarks 
 map -builtin h :hist 
 " focus link, causing it to be shown in status bar
-map -builtin f ;;
+map -builtin H ;;
 
 
 " hintkeys """"""""""
