@@ -76,6 +76,10 @@ nmap -builtin <A-n> gT
 " jump between last selected tabs
 nmap -builtin <C-r> <C-^>
 
+nmap <Leader>t ;tgroup-switch 
+nmap <Leader>g ;tgroup-get 
+nmap <Leader>n ;tgroup-new 
+
 " History keys, too
 nmap -builtin N H
 nmap -builtin I L
@@ -97,4 +101,4 @@ nmap -builtin p u
 " history and bookmarks, local [f]iles, and [S]earch engine suggestions.
 " set complete=bhSsfl
 " set complete=blSfs
-set defsearch=g
+" set defsearch=g
