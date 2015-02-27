@@ -9,7 +9,7 @@ colorscheme zenburn
 " options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guioptions-=br
 set guioptions+=n
-set showtabline=never
+set showtabline=always
 set editor='/usr/local/bin/emacsclient +<line>:<column> <file>'
 " highlight all search matches, not just the first
 set hlfind
@@ -43,7 +43,7 @@ map -builtin b :buffer
 map -builtin B :bmarks 
 map -builtin h :hist 
 " focus link, causing it to be shown in status bar
-map -builtin H ;;
+map -builtin l ;;
 
 
 " hintkeys """"""""""
