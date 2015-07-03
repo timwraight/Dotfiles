@@ -18,7 +18,7 @@ alias gls='git log --oneline --stat'
 alias gm='git merge'
 alias gmt='git mergetool'
 alias go='git checkout'
-alias gpo='git push origin'
+alias gpu='git push -u origin'
 alias gpom='git push origin master'
 alias gppo='git pull origin'
 alias gppom='git pull origin master'
@@ -50,6 +50,8 @@ bindkey '^[u' history-beginning-search-backward
 bindkey '^[e' history-beginning-search-forward
 bindkey '^[i' forward-word
 bindkey '^[n' backward-word
+bindkey '^[l' backward-char
+bindkey '^[y' forward-char
 bindkey '^[N' backward-char
 bindkey '^[I' forward-char
 bindkey '^[D' delete-char
@@ -88,7 +90,7 @@ alias getip='ipconfig getifaddr en1'
 
 # DOCKER
 
-alias clean-images='docker rmi $(docker images -q --filter "dangling=true")'
+alias clean-images='docker rmi -f $(docker images -q --filter "dangling=true")'
 
 alias dp='docker ps | less -S'
 alias dk='docker kill'
@@ -150,3 +152,12 @@ function docker_stage_search() {
 function docker_stage_tags() {
     _docker_stage_fetch https://$DOCKER_STAGE_HOST/v1/repositories/$1/tags
 }
+
+export PAGER=less
+export LESS="-eS"
+
+
+# USEFUL WEE ONE-LINERS
+
+# Awk: group by some field, and increment an index every time it occurs
+# cat mail.log mail.log.1 | awk '{ /status=sent/ days[$1$2]++ } END { for (day in days) print day, days[day]} ' | sort
