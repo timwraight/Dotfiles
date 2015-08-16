@@ -1,4 +1,3 @@
-
 # use colordiff as default diff tool
 alias diff=colordiff
 
@@ -87,7 +86,7 @@ export LESS='-R -S'
 
 function _docker_fetch() {
     echo $1
-    curl -s --user $DOCKER_REGISTRY_AUTH $1 | jq '.'
+    curl -s --user $DOCKER_REGISTRY_AUTH $1 
 }
 
 # List repos (query string is optional)
@@ -104,22 +103,17 @@ function docker_live_tags() {
 
 function _docker_stage_fetch() {
     echo $1
-    curl -s --user $DOCKER_STAGE_AUTH $1 | jq '.'
+    curl -s --user $DOCKER_STAGE_AUTH $1
 }
 
 # List repos (query string is optional)
 function docker_stage_search() {
-    if [ -z "$1" ]; then
-        QUERY_STRING=""
-    else
-        QUERY_STRING=$1
-    fi
-    _docker_stage_fetch "https://$DOCKER_STAGE_HOST/v1/search?q=$QUERY_STRING"
+    _docker_stage_fetch "https://$DOCKER_STAGE_HOST/v2/search?q=$QUERY_STRING"
 }
 
 # List tags for a repo
 function docker_stage_tags() {
-    _docker_stage_fetch https://$DOCKER_STAGE_HOST/v1/repositories/$1/tags
+    _docker_stage_fetch https://$DOCKER_STAGE_HOST/v2/repositories/$1/tags
 }
 
 export PAGER=less

@@ -62,7 +62,6 @@ flycheck-*
 .classpath
 .project
 
-
 .vagrantfile
 *.tmp
 *.orig

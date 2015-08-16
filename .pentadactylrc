@@ -26,6 +26,11 @@ map <Leader>/ :set hlf!<CR>
 " show status bar when in full screen mode
 au Fullscreen .* :set guioptions+=s
 
+# autocmd LocationChange confluence.tangentlabs.co.uk :normal! <C-z>
+set passkeys+=confluence.tangentlabs.co.uk:e
+autocmd LocationChange accountabilityaccess.us :normal! <C-z>
+autocmd LocationChange lucidchart.com :normal! <C-z>
+
 " BOOKMARKS {{{
 " search engines
  "silent bma -tags searchengine -title 'Wikipedia' http://pt.wikipedia.org/wiki/Special:Search?search=%s -k w
@@ -39,7 +44,6 @@ command! beeline -description "Use BeeLine service to make docs easier to read" 
 "http://www.instapaper.com/u
 " command! bml-instapaper -description "Bookmarklet: A simple tool to save web pages for reading later" open javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body,l=d.location;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src',l.protocol+'//www.instapaper.com/j/bQ1lnqqYCoKr?u='+encodeURIComponent(l.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)
 
-map -builtin b :buffer  
 map -builtin B :bmarks 
 map -builtin h :hist 
 " focus link, causing it to be shown in status bar
@@ -48,12 +52,13 @@ map -builtin l ;;
 
 " hintkeys """"""""""
 set hintkeys='arstneio'
-highlight -a Hint text-transform: uppercase;
+hi Hint -a text-transform: uppercase; 
+hi Hint -a font-size: 14px !important; 
 
 " font options """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi Normal -a font-size: 15px !important;
+hi Normal -a font-size: 16px !important;
 hi Normal -a font-family: Consolas !important;
-hi StatusLine -a font-size: 15px !important;
+hi StatusLine -a font-size: 16px !important;
 hi StatusLine -a font-family: Consolas !important;
 
 " custom mappings """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

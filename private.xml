@@ -36,10 +36,42 @@
     <autogen>--KeyToKey-- KeyCode::QUOTE,     ModifierFlag::SHIFT_R, KeyCode::VK_NONE</autogen>
   </item>
   <item>
+      <name>right alt + space to right shift</name>
+      <identifier>remap.altr_to_right_shift</identifier>
+      <autogen>
+        __KeyOverlaidModifier__
+        <!-- from -->
+        KeyCode::SPACE, ModifierFlag::OPTION_R | ModifierFlag::EXTRA3,
+        <!-- to -->
+        KeyCode::SHIFT_L,
+        <!-- overlaid -->
+        KeyCode::CAPSLOCK,
+        KeyCode::VK_STICKY_SHIFT_L_FORCE_OFF,
+        KeyCode::VK_STICKY_EXTRA3_FORCE_OFF,
+        KeyCode::VK_CONFIG_TOGGLE_notsave_shiftl_capslocktrick,
+      </autogen>
+      <autogen>
+        __KeyOverlaidModifier__
+        <!-- from -->
+        KeyCode::SPACE, ModifierFlag::OPTION_R, 
+        <!-- to -->
+        KeyCode::SHIFT_L,
+        <!-- overlaid -->
+        KeyCode::VK_STICKY_SHIFT_L,
+        KeyCode::VK_STICKY_EXTRA3,
+      </autogen>
+  </item>
+  <item>
       <name>Command_R to Meta_R</name>
       <appendix>(+ When you type Command_R only, send escape)</appendix>
       <identifier>remap.commandr_to_meta_escape</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::OPTION_R, KeyCode::ESCAPE</autogen>
+  </item>
+  <item>
+      <name>Command_R to Meta_L (good for linux guests)</name>
+      <appendix>(+ When you type Command_R only, send escape)</appendix>
+      <identifier>remap.commandr_to_meta_l_escape</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::OPTION_L, KeyCode::ESCAPE</autogen>
   </item>
   <item>
       <name>Control_L to Control_L</name>
@@ -53,11 +85,12 @@
       <identifier>remap.metar_to_meta_escape</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_R, KeyCode::OPTION_R, KeyCode::ESCAPE</autogen>
   </item>
-  <item>
-      <name>Meta_L to Meta_L</name>
-      <appendix>(+ When you type Meta_L only, send semicolon)</appendix>
-      <identifier>remap.metal_to_metal_semicolon</identifier>
-      <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::OPTION_L, KeyCode::P</autogen>
+  <item> 
+      <name>Meta_L to Control L</name>
+      <appendix>(+ When you type Meta_L only, use as meta_l)</appendix>
+      <identifier>remap.metal_to_ctrl_l_meta_l</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::CONTROL_L, KeyCode::VK_STICKY_OPTION_L, KeyCode::VK_STICKY_EXTRA3</autogen>
+      <!-- <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, ModifierFlag::EXTRA3, KeyCode::VK_STICKY_OPTION_L, KeyCode::VK_STICKY_EXTRA3</autogen> -->
   </item>
   <item>
     <name>Left Shift to Opening Parenthesis</name>
