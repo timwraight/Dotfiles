@@ -62,10 +62,45 @@
       </autogen>
   </item>
   <item>
-      <name>Command_R to Meta_R</name>
+      <name>right command + space to right shift</name>
+      <identifier>remap.commandr_to_right_shift</identifier>
+      <autogen>
+        __KeyOverlaidModifier__
+        <!-- from -->
+        KeyCode::SPACE, ModifierFlag::COMMAND_R | ModifierFlag::EXTRA3,
+        <!-- to -->
+        KeyCode::SHIFT_L,
+        <!-- overlaid -->
+        KeyCode::CAPSLOCK,
+        KeyCode::VK_STICKY_SHIFT_L_FORCE_OFF,
+        KeyCode::VK_STICKY_EXTRA3_FORCE_OFF,
+        KeyCode::VK_CONFIG_TOGGLE_notsave_shiftl_capslocktrick,
+      </autogen>
+      <autogen>
+        __KeyOverlaidModifier__
+        <!-- from -->
+        KeyCode::SPACE, ModifierFlag::COMMAND_R, 
+        <!-- to -->
+        KeyCode::SHIFT_L,
+        <!-- overlaid -->
+        KeyCode::VK_STICKY_SHIFT_L,
+        KeyCode::VK_STICKY_EXTRA3,
+      </autogen>
+  </item>
+
+  <item>
+      <name>Command_R to Meta_R (except Emacs)</name>
       <appendix>(+ When you type Command_R only, send escape)</appendix>
       <identifier>remap.commandr_to_meta_escape</identifier>
+      <not>EMACS</not>
       <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::OPTION_R, KeyCode::ESCAPE</autogen>
+  </item>
+  <item>
+      <name>Command_R to Command_R (only Emacs)</name>
+      <appendix>(+ When you type Command_R only, send escape)</appendix>
+      <identifier>remap.commandr_to_command_r</identifier>
+      <only>EMACS</only>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::COMMAND_R, KeyCode::ESCAPE</autogen>
   </item>
   <item>
       <name>Command_R to Meta_L (good for linux guests)</name>
