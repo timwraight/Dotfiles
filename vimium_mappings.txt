@@ -1,0 +1,18 @@
+# Insert your preferred key mappings here.
+map e scrollDown
+map u scrollUp
+map n scrollLeft
+map i scrollRight
+map N goBack
+map I goForward
+map d removeTab
+map l lastTab
+map <a-i> nextTab
+map <a-n> previousTab
+map <a-e> scrollPageDown
+map <a-u> scrollPageUp
+map a LinkHints.activateModeToOpenInNewTab
+map <a-r> goBack
+map <a-s> goForward
+map b Vomnibar.activateTabSelection
+map t Vomnibar.activateInNewTab
