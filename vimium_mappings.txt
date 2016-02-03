@@ -16,3 +16,4 @@ map <a-r> goBack
 map <a-s> goForward
 map b Vomnibar.activateTabSelection
 map t Vomnibar.activateInNewTab
+map c copyCurrentUrl
