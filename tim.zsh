@@ -2,13 +2,11 @@
 alias diff=colordiff
 
 # Fabric
-alias fsd='fab stage deploy:branch=stage'
-
 alias top3="ps aux | sort -k3 -r | head -n 3 | awk '{ print$3, \" \",  $11  }'"
 alias myip="ifconfig | grep inet | tail -n 1 | awk '{ print $2 }'"
-alias gbh=git_branch_history
 alias p="ps aux | grep -i"
 alias pipfind="pip freeze | grep -i"
+alias rmpyc="find . -name '*.pyc' | xargs rm "
 
 
 # Key bindings
