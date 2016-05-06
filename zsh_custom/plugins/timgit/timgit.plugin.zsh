@@ -2,7 +2,7 @@
 alias ga='git add'
 alias gaa='git add -A'
 alias gaac='git add -A && git commit'
-alias gb='git branch'
+alias gb='git branch | cut -c1-120'
 alias gc='git commit'
 alias gb='git br'
 alias gbr='git branch'
