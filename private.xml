@@ -109,10 +109,24 @@
       <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::OPTION_L, KeyCode::ESCAPE</autogen>
   </item>
   <item>
-      <name>Command_L to Command_L</name>
+      <name>Command_L to Command_L (except in Emacs)</name>
       <appendix>(+ When you type Command_L only, send sticky shift)</appendix>
+      <not>EMACS</not>
       <identifier>remap.commandl_to_commandl_sticky_shift</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, KeyCode::COMMAND_L, KeyCode::VK_STICKY_SHIFT_L, KeyCode::VK_STICKY_EXTRA3</autogen>
+  </item>
+  <item>
+      <name>Command_L to Meta_L (emacs only)</name>
+      <appendix>(+ When you type Command_L only, send sticky shift)</appendix>
+      <identifier>remap.commandl_to_metal_sticky_shift</identifier>
+      <only>EMACS</only>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, KeyCode::OPTION_L, KeyCode::VK_STICKY_SHIFT_L, KeyCode::VK_STICKY_EXTRA3</autogen>
+  </item>
+  <item>
+      <name>Option_L to Command_L</name>
+      <appendix>To help me escape from emacs</appendix>
+      <identifier>remap.optionl_to_commandl_sticky_shift</identifier>
+      <autogen>__KeyToKey__ KeyCode::OPTION_L, KeyCode::COMMAND_L</autogen>
   </item>
   <item>
       <name>Meta_R to Meta_R</name>
@@ -120,12 +134,11 @@
       <identifier>remap.metar_to_meta_escape</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_R, KeyCode::OPTION_R, KeyCode::ESCAPE</autogen>
   </item>
-  <item> 
-      <name>Meta_L to Control L</name>
-      <appendix>(+ When you type Meta_L only, use as meta_l)</appendix>
-      <identifier>remap.metal_to_ctrl_l_meta_l</identifier>
-      <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::CONTROL_L, KeyCode::VK_STICKY_OPTION_L, KeyCode::VK_STICKY_EXTRA3</autogen>
-      <!-- <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, ModifierFlag::EXTRA3, KeyCode::VK_STICKY_OPTION_L, KeyCode::VK_STICKY_EXTRA3</autogen> -->
+  <item>
+      <name>Meta_L to Control_L</name>
+      <appendix>(+ When you type Meta_L only, send sticky shift)</appendix>
+      <identifier>remap.metal_to_ctrl_sshift</identifier>
+           <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, KeyCode::CONTROL_L, KeyCode::VK_STICKY_SHIFT_L, KeyCode::VK_STICKY_EXTRA3</autogen>
   </item>
   <item>
     <name>Left Shift to Opening Parenthesis</name>

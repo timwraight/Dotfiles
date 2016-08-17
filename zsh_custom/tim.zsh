@@ -124,3 +124,11 @@ export LESS="-eS"
 
 # Awk: group by some field, and increment an index every time it occurs
 # cat mail.log mail.log.1 | awk '{ /status=sent/ days[$1$2]++ } END { for (day in days) print day, days[day]} ' | sort
+
+eval "$(fasd --init auto)"
+alias j=z
+
+
+function tab_title {
+    echo -ne "\033]0;"$*"\007"
+}

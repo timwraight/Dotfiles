@@ -1,3 +1,4 @@
+# -*- mode: conf-unix -*-
 [user]
 	name = Tim Wraight
 	email = tim@wraight.net
@@ -34,4 +35,6 @@
 [push]
 	default = simple
 [alias]
-    br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+    br = for-each-ref --sort=committerdate refs/heads/ refs/remotes --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+[commit]
+    template = ~/.gitcommitmsg.txt
