@@ -7,5 +7,14 @@ function py_req_add () {
 }
 autoload py_req_add
 alias ec="emacsclient -t"
-alias p="py.test -x --lf"
-alias ps="py.test -x --lf --slow --flake8"
+alias p="clear && pytest -x --lf"
+alias p2='clear && pytest -x --lf -n 2'
+alias pp="clear && pytest -x --lf --pdb"
+alias pk="clear && pytest -k "
+alias px="clear && pytest -x "
+# alias ps="pytest -x --lf --slow --flake8"
+# python -m pdb [insert command here..]
+alias ppd='python -m ipdb '
+alias pg='ps aux | grep '
+# Generate a TAGS file in the current directory
+alias generate_tags='find . -name "*.py" | xargs etags --lang=python'
